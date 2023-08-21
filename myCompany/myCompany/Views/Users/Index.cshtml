@@ -1,0 +1,44 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Users View</h1>
+
+<div class="container">
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    User ID
+                </th>
+                <th>
+                    User Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td width="10%">
+                        @user.ID
+                    </td>
+                    <td width="20%">
+                        @user.Name
+                    </td>
+                    <td width="10%">
+                        <a asp-controller="Users" asp-action="Edit" asp-route-ID="@user.ID" class="btn btn-sm btn-success">Edit</a>
+                    </td>
+                    <td width="10%">
+                        <a asp-controller="Users" asp-action="Delete" asp-route-ID="@user.ID" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="addbtn">
+        <a asp-controller="Users" asp-action="Add" class="btn btn-dark">Add User</a>
+    </div>
+</div>

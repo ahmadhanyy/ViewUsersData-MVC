@@ -1,0 +1,24 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Add";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Add New User</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" asp-controller="Users" class="btn btn-dark">Back</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
